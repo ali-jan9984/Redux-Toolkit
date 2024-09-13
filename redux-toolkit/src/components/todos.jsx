@@ -14,7 +14,7 @@ export default function Todos() {
         setUpdatedText(todo.text);
         setTimeout(() => {
             inputRefs.current[todo.id].focus();
-        }, 0); // Ensure the focus is set after rendering
+        }, 0);
     };
 
     const handleUpdate = (id) => {
@@ -35,9 +35,10 @@ export default function Todos() {
                                     value={updatedText}
                                     onChange={(e) => setUpdatedText(e.target.value)}
                                     ref={(el) => inputRefs.current[todo.id] = el}
+                                    className='edit-input'
                                 />
-                                <button onClick={() => handleUpdate(todo.id)}>Save</button>
-                                <button onClick={() => setEditingTodo(null)}>Cancel</button>
+                                <button onClick={() => handleUpdate(todo.id)} className='save-todo'>Save</button>
+                                <button onClick={() => setEditingTodo(null)} className='cancel-todo'>Cancel</button>
                             </div>
                         ) : (
                             <div>
